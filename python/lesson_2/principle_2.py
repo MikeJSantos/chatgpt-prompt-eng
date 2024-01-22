@@ -11,7 +11,7 @@ TEXT = """
     comforting embraces. Despite the mishap, \\
     their adventurous spirits remained undimmed, and they \\
     continued exploring with delight.
-    """
+"""
 
 def tactic_1a():
     """Specify the steps required to complete a task"""
@@ -28,45 +28,47 @@ def tactic_1a():
 
         Text:
         ```{TEXT}```
-        """
+    """
     print_completion(prompt)
 
 def tactic_1b():
     """Ask for output in a specified format"""
     prompt = f"""
-    Your task is to perform the following actions: 
-    1 - Summarize the following text delimited by 
-    <> with 1 sentence.
-    2 - Translate the summary into French.
-    3 - List each name in the French summary.
-    4 - Output a json object that contains the 
-    following keys: french_summary, num_names.
+        Your task is to perform the following actions: 
+        1 - Summarize the following text delimited by 
+        <> with 1 sentence.
+        2 - Translate the summary into French.
+        3 - List each name in the French summary.
+        4 - Output a json object that contains the 
+        following keys: french_summary, num_names.
 
-    Use the following format:
-    Text: <text to summarize>
-    Summary: <summary>
-    Translation: <summary translation>
-    Names: <list of names in summary>
-    Output JSON: <json with summary and num_names>
+        Use the following format:
+        Text: <text to summarize>
+        Summary: <summary>
+        Translation: <summary translation>
+        Names: <list of names in summary>
+        Output JSON: <json with summary and num_names>
 
-    Text: <{TEXT}>
+        Text: <{TEXT}>
     """
     print_completion(prompt)
 
 QUESTION = """
-        I'm building a solar power installation and I need help working out the financials. 
-        - Land costs $100 / square foot
-        - I can buy solar panels for $250 / square foot
-        - I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot
-        What is the total cost for the first year of operations as a function of the number of square feet."""
+    I'm building a solar power installation and I need help working out the financials. 
+    - Land costs $100 / square foot
+    - I can buy solar panels for $250 / square foot
+    - I negotiated a contract for maintenance that will cost me a flat $100k per year, and an additional $10 / square foot
+    What is the total cost for the first year of operations as a function of the number of square feet.
+"""
 
 STUDENT_SOLUTION = """
-        Let x be the size of the installation in square feet.
-        Costs:
-        1. Land cost: 100x
-        2. Solar panel cost: 250x
-        3. Maintenance cost: 100,000 + 100x
-        Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000"""
+    Let x be the size of the installation in square feet.
+    Costs:
+    1. Land cost: 100x
+    2. Solar panel cost: 250x
+    3. Maintenance cost: 100,000 + 100x
+    Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000
+"""
 
 def tactic_2a():
     """Incorrect answer"""
