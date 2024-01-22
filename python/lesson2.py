@@ -35,7 +35,6 @@ def tactic_1():
         into a single sentence.
         ```{text}```
         """
-# print(f"""\n{nameof(tactic_1)}:\n\n{get_completion(tactic_1())}""")
 
 def tactic_2():
     """Ask for a structured output"""
@@ -45,7 +44,6 @@ def tactic_2():
     Provide them in JSON format with the following keys: 
     book_id, title, author, genre.
     """
-# print(f"""\n{nameof(tactic_2)}:\n\n{get_completion(tactic_2())}""")
 
 def tactic_3():
     """Ask the model to check whether conditions are satisfied"""
@@ -75,4 +73,7 @@ then simply write \"No steps provided.\"
 
 \"\"\"{text_1}\"\"\"
 """
+
+# print(f"""\n{nameof(tactic_1)}:\n\n{get_completion(tactic_1())}""")
+# print(f"""\n{nameof(tactic_2)}:\n\n{get_completion(tactic_2())}""")
 print(f"""\n{nameof(tactic_3)}:\n\n{get_completion(tactic_3())}""")
