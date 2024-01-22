@@ -45,9 +45,27 @@ def tactic_2():
         book_id, title, author, genre.
         """
 
-def tactic_3():
+def tactic_3(text):
     """Ask the model to check whether conditions are satisfied"""
-    text_1 = """
+    return f"""
+        You will be provided with text delimited by triple quotes. 
+        If it contains a sequence of instructions, \\
+        re-write those instructions in the following format:
+
+        Step 1 - ...
+        Step 2 - …
+        …
+        Step N - …
+
+        If the text does not contain a sequence of instructions, \\
+        then simply write \"No steps provided.\"
+
+        \"\"\"{text}\"\"\"
+        """
+
+def tactic_3a():
+    """Ask the model to check whether conditions are satisfied"""
+    text = """
         Making a cup of tea is easy! First, you need to get some \\
         water boiling. While that's happening, \\
         grab a cup and put a tea bag in it. Once the water is \\
@@ -58,25 +76,11 @@ def tactic_3():
         And that's it! You've got yourself a delicious \\
         cup of tea to enjoy.
         """
-    return f"""
-        You will be provided with text delimited by triple quotes. 
-        If it contains a sequence of instructions, \\
-        re-write those instructions in the following format:
+    return tactic_3(text)
 
-        Step 1 - ...
-        Step 2 - …
-        …
-        Step N - …
-
-        If the text does not contain a sequence of instructions, \\
-        then simply write \"No steps provided.\"
-
-        \"\"\"{text_1}\"\"\"
-        """
-
-def tactic_3a():
-    """Trigger \"No steps provided\"."""
-    text_2 = """
+def tactic_3b():
+    """\"No steps provided.\""""
+    text = """
         The sun is shining brightly today, and the birds are \\
         singing. It's a beautiful day to go for a \\
         walk in the park. The flowers are blooming, and the \\
@@ -87,23 +91,9 @@ def tactic_3a():
         perfect day to spend time outdoors and appreciate the \\
         beauty of nature.
         """
-    return f"""
-        You will be provided with text delimited by triple quotes. 
-        If it contains a sequence of instructions, \\
-        re-write those instructions in the following format:
+    return tactic_3(text)
 
-        Step 1 - ...
-        Step 2 - …
-        …
-        Step N - …
-
-        If the text does not contain a sequence of instructions, \\
-        then simply write \"No steps provided.\"
-
-        \"\"\"{text_2}\"\"\"
-        """
-
-# print(f"""\n{nameof(tactic_1)}:\n\n{get_completion(tactic_1())}""")
-# print(f"""\n{nameof(tactic_2)}:\n\n{get_completion(tactic_2())}""")
-# print(f"""\n{nameof(tactic_3)}:\n\n{get_completion(tactic_3())}""")
+print(f"""\n{nameof(tactic_1)}:\n\n{get_completion(tactic_1())}""")
+print(f"""\n{nameof(tactic_2)}:\n\n{get_completion(tactic_2())}""")
 print(f"""\n{nameof(tactic_3a)}:\n\n{get_completion(tactic_3a())}""")
+print(f"""\n{nameof(tactic_3b)}:\n\n{get_completion(tactic_3b())}""")
