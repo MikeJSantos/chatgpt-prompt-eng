@@ -12,7 +12,7 @@ so I got to play with it myself before I gave it \\
 to her.
 """
 
-def summarize_limit():
+def summarize_word_sentence_character_limit():
     """Summarize with a word/sentence/character limit"""
     prompt = f"""
         Your task is to generate a short summary of a product review from an ecommerce site. 
@@ -40,5 +40,5 @@ def summarize_shipping_and_delivery():
     """
     print_completion(prompt)
 
-summarize_limit()
+summarize_word_sentence_character_limit()
 summarize_shipping_and_delivery()
