@@ -1,6 +1,11 @@
 """https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/2/guidelines"""
-from varname import nameof
+import inspect
 from get_completion import get_completion
+
+def print_completion(prompt):
+    """Call get_completion() & print the output"""
+    print(f"""\n{inspect.stack()[1][3]}():{prompt}----------\n""")
+    print(get_completion(prompt))
 
 def tactic_1():
     """ Use delimiters to clearly indicate distinct parts of the input"""
@@ -16,20 +21,22 @@ def tactic_1():
         and context for the model, which can lead to \\\
         more detailed and relevant outputs.
         """
-    return f"""
+    prompt = f"""
         Summarize the text delimited by triple backticks \\
         into a single sentence.
         ```{text}```
         """
+    print_completion(prompt)
 
 def tactic_2():
     """Ask for a structured output"""
-    return """
+    prompt = """
         Generate a list of three made-up book titles along \\
         with their authors and genres. 
         Provide them in JSON format with the following keys: 
         book_id, title, author, genre.
         """
+    print_completion(prompt)
 
 def tactic_3(text):
     """Ask the model to check whether conditions are satisfied"""
@@ -62,7 +69,8 @@ def tactic_3a():
         And that's it! You've got yourself a delicious \\
         cup of tea to enjoy.
         """
-    return tactic_3(text)
+    prompt = tactic_3(text)
+    print_completion(prompt)
 
 def tactic_3b():
     """\"No steps provided.\""""
@@ -77,25 +85,27 @@ def tactic_3b():
         perfect day to spend time outdoors and appreciate the \\
         beauty of nature.
         """
-    return tactic_3(text)
+    prompt = tactic_3(text)
+    print_completion(prompt)
 
 def tactic_4():
     """\"Few-shot\" prompting"""
-    return """
+    prompt = """
         Your task is to answer in a consistent style.
 
         <child>: Teach me about patience.
 
-        <grandparent>: The river that carves the deepest \ 
-        valley flows from a modest spring; the \ 
-        grandest symphony originates from a single note; \ 
+        <grandparent>: The river that carves the deepest \\
+        valley flows from a modest spring; the \\
+        grandest symphony originates from a single note; \\
         the most intricate tapestry begins with a solitary thread.
 
         <child>: Teach me about resilience.
         """
+    print_completion(prompt)
 
-print(f"""\n{nameof(tactic_1)}:\n\n{get_completion(tactic_1())}""")
-print(f"""\n{nameof(tactic_2)}:\n\n{get_completion(tactic_2())}""")
-print(f"""\n{nameof(tactic_3a)}:\n\n{get_completion(tactic_3a())}""")
-print(f"""\n{nameof(tactic_3b)}:\n\n{get_completion(tactic_3b())}""")
-print(f"""\n{nameof(tactic_4)}:\n\n{get_completion(tactic_4())}""")
+tactic_1()
+tactic_2()
+tactic_3a()
+tactic_3b()
+tactic_4()
