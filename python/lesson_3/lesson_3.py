@@ -53,4 +53,18 @@ def main():
     """
     print_completion(prompt)
 
-main()
+def issue_1():
+    """Use at most 50 words."""
+    prompt = f"""
+        Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
+
+        Write a product description based on the information provided in the technical specifications delimited by triple backticks.
+
+        Use at most 50 words.
+
+        Technical specifications: ```{FACT_SHEET_CHAIR}```
+    """
+    print_completion(prompt)
+
+# main()
+issue_1()
