@@ -1,11 +1,5 @@
 """https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/2/guidelines"""
-import inspect
-from get_completion import get_completion
-
-def print_completion(prompt):
-    """Call get_completion() & print the output"""
-    print(f"""\n{inspect.stack()[1][3]}():{prompt}----------\n""")
-    print(get_completion(prompt))
+from openai_wrapper import print_completion
 
 def tactic_1():
     """ Use delimiters to clearly indicate distinct parts of the input"""
