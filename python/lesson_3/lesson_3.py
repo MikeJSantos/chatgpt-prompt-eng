@@ -42,27 +42,36 @@ FACT_SHEET_CHAIR = """
     - Italy
 """
 
+BASE_PROMPT = """
+    Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
+
+    Write a product description based on the information provided in the technical specifications delimited by triple backticks.
+"""
+
+TECHNICAL_SPECIFICATIONS = f"""
+    Technical specifications:
+    ```
+    {FACT_SHEET_CHAIR}
+    ```
+"""
+
 def main():
     """Generate a marketing product description from a product fact sheet"""
     prompt = f"""
-        Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
+        {BASE_PROMPT}
 
-        Write a product description based on the information provided in the technical specifications delimited by triple backticks.
-
-        Technical specifications: ```{FACT_SHEET_CHAIR}```
+        {TECHNICAL_SPECIFICATIONS}
     """
     print_completion(prompt)
 
 def issue_1():
     """Use at most 50 words."""
     prompt = f"""
-        Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
-
-        Write a product description based on the information provided in the technical specifications delimited by triple backticks.
+        {BASE_PROMPT}
 
         Use at most 50 words.
 
-        Technical specifications: ```{FACT_SHEET_CHAIR}```
+        {TECHNICAL_SPECIFICATIONS}
     """
     print_completion(prompt)
 
