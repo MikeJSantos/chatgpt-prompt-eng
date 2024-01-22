@@ -26,4 +26,19 @@ def summarize_limit():
     """
     print_completion(prompt)
 
+def summarize_shipping_and_delivery():
+    """Summarize with a focus on shipping and delivery"""
+    prompt = f"""
+        Your task is to generate a short summary of a product review from an ecommerce site to give feedback to the Shipping deparmtment. 
+
+        Summarize the review below, delimited by triple backticks, in at most 30 words, and focusing on any aspects that mention shipping and delivery of the product. 
+
+        Review:
+        ```
+        {PRODUCT_REVIEW}
+        ```
+    """
+    print_completion(prompt)
+
 summarize_limit()
+summarize_shipping_and_delivery()
