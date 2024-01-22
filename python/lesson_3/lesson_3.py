@@ -61,11 +61,23 @@ def main():
     print_completion(prompt)
 
 def issue_1():
-    """Use at most 50 words."""
+    """The text is too long"""
     prompt = f"""
         {BASE_PROMPT}    Use at most 50 words.\n{TECHNICAL_SPECIFICATIONS}
     """
     print_completion(prompt)
 
-main()
-issue_1()
+def issue_2():
+    """Text focuses on the wrong details"""
+    prompt = f"""
+        Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
+        Write a product description based on the information provided in the technical specifications delimited by triple backticks.
+        The description is intended for furniture retailers, so should be technical in nature and focus on the materials the product is constructed from.
+        Use at most 50 words.
+        {TECHNICAL_SPECIFICATIONS}
+    """
+    print_completion(prompt)
+
+# main()
+# issue_1()
+issue_2()
