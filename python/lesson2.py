@@ -93,7 +93,23 @@ def tactic_3b():
         """
     return tactic_3(text)
 
-print(f"""\n{nameof(tactic_1)}:\n\n{get_completion(tactic_1())}""")
-print(f"""\n{nameof(tactic_2)}:\n\n{get_completion(tactic_2())}""")
-print(f"""\n{nameof(tactic_3a)}:\n\n{get_completion(tactic_3a())}""")
-print(f"""\n{nameof(tactic_3b)}:\n\n{get_completion(tactic_3b())}""")
+def tactic_4():
+    """\"Few-shot\" prompting"""
+    return """
+        Your task is to answer in a consistent style.
+
+        <child>: Teach me about patience.
+
+        <grandparent>: The river that carves the deepest \ 
+        valley flows from a modest spring; the \ 
+        grandest symphony originates from a single note; \ 
+        the most intricate tapestry begins with a solitary thread.
+
+        <child>: Teach me about resilience.
+        """
+
+# print(f"""\n{nameof(tactic_1)}:\n\n{get_completion(tactic_1())}""")
+# print(f"""\n{nameof(tactic_2)}:\n\n{get_completion(tactic_2())}""")
+# print(f"""\n{nameof(tactic_3a)}:\n\n{get_completion(tactic_3a())}""")
+# print(f"""\n{nameof(tactic_3b)}:\n\n{get_completion(tactic_3b())}""")
+print(f"""\n{nameof(tactic_4)}:\n\n{get_completion(tactic_4())}""")
