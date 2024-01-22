@@ -1,8 +1,7 @@
 """https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/3/iterative"""
 from openai_wrapper import print_completion
 
-FACT_SHEET_CHAIR = """
-    OVERVIEW
+FACT_SHEET_CHAIR = """OVERVIEW
     - Part of a beautiful family of mid-century inspired office furniture, 
     including filing cabinets, desks, bookcases, meeting tables, and more.
     - Several options of shell color and base finishes.
@@ -44,7 +43,6 @@ FACT_SHEET_CHAIR = """
 
 BASE_PROMPT = """
     Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
-
     Write a product description based on the information provided in the technical specifications delimited by triple backticks.
 """
 
@@ -58,22 +56,16 @@ TECHNICAL_SPECIFICATIONS = f"""
 def main():
     """Generate a marketing product description from a product fact sheet"""
     prompt = f"""
-        {BASE_PROMPT}
-
-        {TECHNICAL_SPECIFICATIONS}
+        {BASE_PROMPT}{TECHNICAL_SPECIFICATIONS}
     """
     print_completion(prompt)
 
 def issue_1():
     """Use at most 50 words."""
     prompt = f"""
-        {BASE_PROMPT}
-
-        Use at most 50 words.
-
-        {TECHNICAL_SPECIFICATIONS}
+        {BASE_PROMPT}    Use at most 50 words.\n{TECHNICAL_SPECIFICATIONS}
     """
     print_completion(prompt)
 
-# main()
+main()
 issue_1()
