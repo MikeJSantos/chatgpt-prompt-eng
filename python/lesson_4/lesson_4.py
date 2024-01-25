@@ -44,6 +44,17 @@ def summarize_price_and_value():
     """
     print_completion(prompt)
 
+def extract():
+    """Try "extract" instead of "summarize"""
+    prompt = f"""
+        Your task is to extract relevant information from a product review from an ecommerce site to give feedback to the Shipping department. 
+        From the review below, delimited by triple quotes extract the information relevant to shipping and delivery. Limit to 30 words.
+        
+        {PRODUCT_REVIEW}
+    """
+    print_completion(prompt)
+
 summarize_word_sentence_character_limit()
 summarize_shipping_and_delivery()
 summarize_price_and_value()
+extract()
