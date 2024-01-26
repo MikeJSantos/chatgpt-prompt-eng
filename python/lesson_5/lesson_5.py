@@ -119,9 +119,29 @@ def infer_5_topics():
 
     print(', '.join(topic_list))
 
+def news_alert():
+    """Make a news alert for certain topics"""
+    topic_list = [
+        "nasa", "local government", "engineering", "employee satisfaction", "federal government"
+    ]
+    prompt = f"""
+        Determine whether each item in the following list of topics is a topic in the text below, which is delimited with triple backticks.
+        Give your answer as list with 0 or 1 for each topic.
+
+        List of topics: {", ".join(topic_list)}
+
+        {STORY}
+    """
+    response = get_completion(prompt)
+    print(response)
+    # topic_dict = {i.split(': ')[0]: int(i.split(': ')[1]) for i in response.split(sep='\n')}
+    # if topic_dict['nasa'] == 1:
+    #     print("ALERT: New NASA story!")
+
 # sentiment()
 # sentiment_one_word()
 # identify_emotions()
 # identify_item_and_company()
 # identify_multiple_items()
 infer_5_topics()
+news_alert()
