@@ -32,5 +32,17 @@ def sentiment_one_word():
     """
     print_completion(prompt)
 
+def identify_emotions():
+    """Identify types of emotions"""
+    prompt = f"""
+        Identify a list of emotions that the writer of the following review is expressing.
+        Include no more than five items in the list.
+        Format your answer as a list of lower-case words separated by commas.
+
+        {LAMP_REVIEW}
+    """
+    print_completion(prompt)
+
 # sentiment()
-sentiment_one_word()
+# sentiment_one_word()
+identify_emotions()
